@@ -1,9 +1,8 @@
 import { StyledHeader } from "../assets/styles/styles";
-import { Searchbar } from "../components";
+import { Searchbar, Cart } from "../components";
 
 import logo from "../assets/statics/cor-logo.svg";
 import user from "../assets/statics/user-icon.png";
-import cart from "../assets/statics/cart.png";
 
 export const Header = ({ className }) => (
   <StyledHeader className={className}>
@@ -18,9 +17,7 @@ export const Header = ({ className }) => (
           <img src={user} alt="User Icon" />
           <span>Mi Cuenta</span>
         </div>
-        <div>
-          <img src={cart} alt="Cart Icon" />
-        </div>
+        <Cart />
       </div>
     </div>
   </StyledHeader>
