@@ -12,6 +12,7 @@ export const StarsRated = ({ starsRate }) => {
           <img
             src={`${star <= starsRate ? starFilled : starVoid}`}
             alt="Star"
+            key={star}
           />
         );
       })}
