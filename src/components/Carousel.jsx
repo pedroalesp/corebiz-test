@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
-import { StyledCarrusel } from "../assets/styles/styles";
+import { StyledCarousel } from "../assets/styles/styles";
+import { ProductListItem } from "./";
 
-export const Carrusel = () => {
+export const Carousel = () => {
   const [products, setProducts] = useState([]);
   const BASE_URL = "https://corebiz-test.herokuapp.com/api/v1/products";
 
@@ -18,16 +19,17 @@ export const Carrusel = () => {
   };
 
   return (
-    <StyledCarrusel>
+    <StyledCarousel>
       <h2>Más vendidos</h2>
-      <div>
+      <div className="carousel-container">
         <ul>
           {products.map((product) => {
-            return <li>holaa soy un producto</li>;
+            return (
+              <ProductListItem key={product.productId} product={product} />
+            );
           })}
-          <li></li>
         </ul>
       </div>
-    </StyledCarrusel>
+    </StyledCarousel>
   );
 };

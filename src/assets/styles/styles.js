@@ -87,6 +87,89 @@ export const StyledHero = styled.section`
   }
 `;
 
-export const StyledCarrusel = styled.section`
+export const StyledCarousel = styled.section`
+  padding: 2em 0;
   height: 430px;
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
+export const BuyButton = styled.button`
+  background-color: #000;
+  color: #fff;
+  width: 125px;
+  height: 32px;
+  border-radius: 5px;
+  border: none;
+  margin: 10px 0 20px 0;
+  display: none;
+  cursor: pointer;
+`;
+
+export const StyledProductListItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e6e8ea;
+    ${BuyButton} {
+      display: block;
+    }
+  }
+
+  div {
+    &:nth-child(1) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  div {
+    &:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      > div {
+        flex-direction: row;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 0 0 5px 0;
+    text-align: center;
+    color: #7a7a7a;
+    &:nth-child(3) {
+      text-decoration: line-through;
+    }
+    &:nth-child(4) {
+      font-size: 1.4em;
+      font-weight: 800;
+      color: #000;
+    }
+  }
+`;
+
+export const StyledStars = styled.div`
+  display: flex;
+
+  justify-content: center;
+  margin-bottom: 5px;
+  img {
+    width: 1em;
+  }
 `;

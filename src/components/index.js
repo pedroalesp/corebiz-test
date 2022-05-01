@@ -1,2 +1,4 @@
 export { Searchbar } from "./Searchbar";
-export { Carrusel } from "./Carrusel";
+export { Carousel } from "./Carousel";
+export { ProductListItem } from "./ProductListItem";
+export { StarsRated } from "./StarsRated";

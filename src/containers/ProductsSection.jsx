@@ -1,7 +1,7 @@
-import { Carrusel } from "../components";
+import { Carousel } from "../components";
 
 export const ProductsSection = () => (
   <>
-    <Carrusel />
+    <Carousel />
   </>
 );

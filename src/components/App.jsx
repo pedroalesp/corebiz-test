@@ -1,12 +1,15 @@
 import React from "react";
+import { Cartprovider } from "../context";
 import { Layout } from "../containers/Layout";
 import GlobalStyles from "../assets/styles/GlobalStyles";
 
 function App() {
   return (
     <>
-      <GlobalStyles />
-      <Layout />
+      <Cartprovider>
+        <GlobalStyles />
+        <Layout />
+      </Cartprovider>
     </>
   );
 }
