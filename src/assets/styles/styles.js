@@ -405,7 +405,9 @@ export const StyledFooter = styled.footer`
     display: flex;
     flex-direction: row;
     padding-top: 30px;
-    margin-right: 20px;
+    div {
+      margin-right: 20px;
+    }
   }
 
   @media ${breakpoints.big_phone} {
