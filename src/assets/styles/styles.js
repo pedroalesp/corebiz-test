@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+import banner from "../statics/banner.jpg";
+
+const breakpoints = {
+  phone: `(max-width: 320px)`,
+  big_phone: `(max-width: 480px)`,
+  tablet: `(max-width: 769px)`,
+  desk: `(max-width: 1024px)`,
+};
+
 export const StyledLayout = styled.main`
   display: flex;
   flex-direction: column;
@@ -47,6 +56,29 @@ export const StyledHeader = styled.header`
     margin-right: 2em;
     cursor: pointer;
   }
+
+  @media ${breakpoints.tablet} {
+    .header-wrapper {
+      width: 100%;
+    }
+    .logo-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+      }
+    }
+    .user-account {
+      display: none !important;
+    }
+  }
+
+  @media ${breakpoints.big_phone} {
+    .header-wrapper {
+      display: flex;
+    }
+  }
 `;
 
 export const StyledSearchbar = styled.input`
@@ -62,9 +94,15 @@ export const StyledSearchbar = styled.input`
 `;
 
 export const StyledHero = styled.section`
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url(${banner});
   background-color: #000;
+  background-position-x: right;
+  background-size: contain;
+  background-repeat: no-repeat;
+
   color: #fff;
-  height: 430px;
+  height: 400px;
   width: 100%;
   position: relative;
 
@@ -76,6 +114,15 @@ export const StyledHero = styled.section`
     top: 33%;
     left: 15%;
 
+    @media ${breakpoints.tablet} {
+      top: 23%;
+    }
+
+    @media ${breakpoints.big_phone} {
+      font-size: 1.2em;
+      left: 10%;
+    }
+
     h1 {
       font-weight: 900;
       margin: 0;
@@ -85,16 +132,70 @@ export const StyledHero = styled.section`
       margin: 0 0 0.4em 0;
     }
   }
+
+  @media ${breakpoints.tablet} {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url(${banner});
+    background-size: cover;
+  }
+  @media ${breakpoints.big_phone} {
+    height: 260px;
+  }
 `;
 
 export const StyledCarousel = styled.section`
   padding: 2em 0;
   height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .carousel-container {
+    width: 75%;
+    overflow: hidden;
+
+    @media ${breakpoints.big_phone} {
+      width: 100%;
+    }
+  }
+  h2 {
+    font-weight: 900;
+    margin-bottom: 0;
+
+    @media ${breakpoints.big_phone} {
+      margin-left: 1em;
+    }
+  }
+  .border {
+    background-color: #c0c0c0;
+    height: 3px;
+    width: 71px;
+
+    @media ${breakpoints.big_phone} {
+      margin-left: 1.7em;
+    }
+  }
+
   ul {
     list-style: none;
+    padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @media ${breakpoints.tablet} {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  @media ${breakpoints.tablet} {
+    height: 100%;
+  }
+
+  @media ${breakpoints.big_phone} {
+    padding: 0;
   }
 `;
 
@@ -103,10 +204,11 @@ export const BuyButton = styled.button`
   color: #fff;
   width: 125px;
   height: 32px;
+  font-family: "Nunito", sans-serif;
   border-radius: 5px;
   border: none;
   margin: 10px 0 20px 0;
-  display: none;
+  visibility: hidden;
   cursor: pointer;
 `;
 
@@ -116,11 +218,12 @@ export const StyledProductListItem = styled.li`
   align-items: center;
   font-size: 0.8em;
   cursor: pointer;
+  margin-right: 2em;
 
   &:hover {
     background-color: #e6e8ea;
     ${BuyButton} {
-      display: block;
+      visibility: visible;
     }
   }
 
@@ -171,5 +274,84 @@ export const StyledStars = styled.div`
   margin-bottom: 5px;
   img {
     width: 1em;
+  }
+`;
+
+export const StyledNewsletter = styled.section`
+  height: 150px;
+  background-color: #f2f2f2;
+
+  @media ${breakpoints.tablet} {
+    height: auto;
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media ${breakpoints.tablet} {
+    width: 100%;
+    align-items: center;
+  }
+`;
+
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+  }
+
+  input {
+    height: 48px;
+    width: 280px;
+    padding-left: 15px;
+    font-size: 0.9em;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    margin-right: 0.5em;
+    border-radius: 5px;
+    border: none;
+
+    @media ${breakpoints.tablet} {
+      margin-bottom: 1em;
+    }
+  }
+
+  button {
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    font-size: 0.9em;
+    width: 140px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    border: none;
+
+    @media ${breakpoints.tablet} {
+      width: 100%;
+    }
+  }
+
+  @media ${breakpoints.big_phone} {
+    padding: 0 2em;
+  }
+`;
+
+export const CartContainer = styled.div`
+  .cart-counter {
+    background-color: #f8475f;
+    color: #fff;
+    padding: 1px 5px;
+    border-radius: 94%;
+    margin-left: 5px;
+    font-size: 10px;
+    display: ${(props) => (props === 0 ? "none" : "block")};
   }
 `;

@@ -1,29 +1,28 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../context";
-import { useLocalStorage } from "../hooks/useLocalStorage";
 import { StarsRated } from "./";
 import { StyledProductListItem, BuyButton } from "../assets/styles/styles";
 
 export const ProductListItem = ({ product }) => {
-  const [cartProducts, setCartProducts] = useLocalStorage("products", []);
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cart } = useContext(CartContext);
   const { imageUrl, productName, stars, listPrice, price, installments } =
     product;
 
   const handleSubmit = () => {
-    setCartProducts(productName);
-    addToCart(cartProducts);
+    addToCart(productName);
+    setLocalStorage(cart);
   };
 
-  //   const setLocalStorage = (value) => {
-  //     try {
-  //       setCartProducts(value);
-  //       window.localStorage.setItem("products", value);
-  //       addToCart(cartProducts);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
+  const setLocalStorage = (value) => {
+    try {
+      window.localStorage.setItem(
+        "products",
+        JSON.stringify([...value, value])
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <StyledProductListItem>
