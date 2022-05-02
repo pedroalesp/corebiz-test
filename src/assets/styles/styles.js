@@ -91,6 +91,10 @@ export const StyledSearchbar = styled.input`
   outline: none;
   font-size: 1em;
   height: 50px;
+
+  @media ${breakpoints.big_phone} {
+    margin-right: 30px;
+  }
 `;
 
 export const StyledHero = styled.section`
@@ -336,6 +340,7 @@ export const StyledForm = styled.form`
 
     @media ${breakpoints.tablet} {
       width: 100%;
+      margin-bottom: 1em;
     }
   }
 
@@ -353,5 +358,70 @@ export const CartContainer = styled.div`
     margin-left: 5px;
     font-size: 10px;
     display: ${(props) => (props === 0 ? "none" : "block")};
+  }
+`;
+
+export const StyledFooter = styled.footer`
+  width: 100%;
+  height: auto;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 1em;
+
+  p {
+    font-size: 0.7em;
+  }
+
+  button {
+    color: #000;
+    cursor: pointer;
+    background-color: #fff;
+    width: 230px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    margin-bottom: 30px;
+
+    @media ${breakpoints.big_phone} {
+      font-size: 0.7em;
+      height: 50px;
+    }
+
+    img {
+      margin-right: 5px;
+    }
+  }
+  .buttons-container {
+    display: flex;
+    padding-top: 30px;
+    flex-direction: column;
+  }
+  .sponsors {
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+    margin-right: 20px;
+  }
+
+  @media ${breakpoints.big_phone} {
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.4em;
+
+    .sponsors {
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-around;
+      div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
   }
 `;

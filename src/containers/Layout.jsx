@@ -1,5 +1,5 @@
 import { StyledLayout } from "../assets/styles/styles";
-import { Header, Hero, ProductsSection, NewsletterSection } from "./";
+import { Header, Hero, ProductsSection, NewsletterSection, Footer } from "./";
 
 export const Layout = () => (
   <StyledLayout>
@@ -7,7 +7,6 @@ export const Layout = () => (
     <Hero />
     <ProductsSection />
     <NewsletterSection />
-    {/* 
-    <Footer /> */}
+    <Footer />
   </StyledLayout>
 );
